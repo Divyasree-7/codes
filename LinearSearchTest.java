@@ -1,5 +1,5 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class LinearSearchTest {
 
@@ -7,22 +7,22 @@ public class LinearSearchTest {
     int[] arr = {2, 4, 6, 8};
 
     @Test // ✅ PASS
-    void testFound() {
+    public void testFound() {
         assertEquals(2, ls.search(arr, 6));
     }
 
     @Test // ✅ PASS
-    void testNotFound() {
+    public void testNotFound() {
         assertEquals(-1, ls.search(arr, 10));
     }
 
     @Test // ❌ FAIL
-    void testWrongIndex() {
+    public void testWrongIndex() {
         assertEquals(3, ls.search(arr, 6)); // wrong
     }
 
     @Test // ❌ FAIL
-    void testAnotherFail() {
+    public void testAnotherFail() {
         assertEquals(0, ls.search(arr, 8)); // wrong
     }
 }
