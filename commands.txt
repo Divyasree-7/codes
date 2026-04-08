@@ -1,0 +1,59 @@
+DOCKER
+
+16) --> docker build -t app .
+    --> docker images
+    --> docker run app
+
+19) --> docker build -t app . (in jenkins) (no pollSCM)
+
+12) mvn --version
+    mvn archetype:generate
+    mvn clean test   
+   14)open target->site->jacoco->index.html
+
+  
+13)commands in github for git bash
+
+15) docker run hello-world
+    docker pull ubuntu
+    docker run -it ubuntu
+    docker images
+    docker ps
+    docker ps -a
+    docker stop <id>
+    docker rm <id>
+    docker rmi <image>
+-> Run Container in Background
+    docker run -d nginx
+-> Port Mapping Example
+    docker run -d -p 8081:80 nginx
+  ✔ Access in browser:http://localhost:8081
+
+
+17)# Docker volume and port mapping
+  docker run -d nginx
+  docker run -d -p 8084:80 nginx
+  docker volume create vol
+  docker volume ls
+  docker run -it -v vol: /data ubuntu bash
+  cd data
+  echo " ">test.txt
+  exit
+  docker run -d -p 8085:80 -v vol:/usr/share/nginx/html nginx
+  docker run -it -v vol: /data ubuntu bash
+  cd data
+  echo "<h1>Persistent Web page</h1>" > /data/index.html
+  exit
+
+18) #Docker image push to Docker Hub
+  docker --version
+  docker images
+  docker login
+#create a folder with dockerfile and java code 
+  docker build -t java-app .
+  docker run -t java-app
+  docker build -t java-app1 .
+  docker tag java-app spoorthikm9/java-app1:v1
+  docker login
+  docker push spoorthikm9/java-app1:v1
+  check in docker hub repositories
