@@ -31,3 +31,44 @@ public class BankAccountTest {
         assertEquals(0, acc.getBalance(), 0.01); // wrong
     }
 }
+
+
+
+
+
+JUNIT 5
+---------------------------------------------------------
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BankAccountTest {
+
+    @Test
+    void testDeposit() {
+        BankAccount acc = new BankAccount(100);
+        acc.deposit(50);
+        assertEquals(150, acc.getBalance(), 0.01);
+    }
+
+    @Test
+    void testWithdraw() {
+        BankAccount acc = new BankAccount(100);
+        acc.withdraw(30);
+        assertEquals(70, acc.getBalance(), 0.01);
+    }
+
+    @Test
+    void testCorrectBalance() {
+        BankAccount acc = new BankAccount(100);
+        acc.deposit(50);
+        assertEquals(150, acc.getBalance(), 0.01); // fixed
+    }
+
+    @Test
+    void testOverWithdraw() {
+        BankAccount acc = new BankAccount(100);
+        acc.withdraw(200);
+        assertEquals(0, acc.getBalance(), 0.01); // handled safely
+    }
+}
