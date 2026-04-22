@@ -1,0 +1,17 @@
+git clone https://github.com/YOUR-USERNAME/3exp.git
+cd 3exp
+
+git remote add upstream https://github.com/Divyasree-7/3exp.git
+
+git checkout -b feature1
+
+echo "Feature work" >> file1.txt
+echo "Feature file" > feature.txt
+
+git add .
+git commit -m "Feature1 changes"
+
+git push origin feature1
+
+git checkout main
+git pull origin main
