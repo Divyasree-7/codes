@@ -3,12 +3,12 @@ docker run -d nginx
 docker run -d -p 8084:80 nginx
 docker volume create vol
 docker volume ls
-docker run -it -v vol: /data ubuntu bash
+docker run -it -v vol:/data ubuntu bash
 cd data
 echo " ">test.txt
 exit
 docker run -d -p 8085:80 -v vol:/usr/share/nginx/html nginx
-docker run -it -v vol: /data ubuntu bash
+docker run -it -v vol:/data ubuntu bash
 cd data
 echo "<h1>Persistent Web page</h1>" > /data/index.html
 exit
