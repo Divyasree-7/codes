@@ -57,3 +57,54 @@ DOCKER
   docker login
   docker push spoorthikm9/java-app1:v1
   check in docker hub repositories
+
+
+
+
+
+------------------for credential error-----------------
+git config --global --unset credential.helper
+git credential-cache exit
+
+
+(or)
+
+
+Step 1: Remove old credentials (very important)
+
+Run in Git Bash:
+
+git config --global --unset credential.helper
+git credential-cache exit
+
+Then:
+
+Open Control Panel → Credential Manager
+Go to Windows Credentials
+Delete all entries related to GitHub
+Step 2: Generate Personal Access Token (PAT)
+
+In GitHub:
+
+Go to Settings
+Open Developer Settings
+Click Personal Access Tokens
+Click Generate new token
+Select:
+repo (full control)
+Click Generate
+Copy the token (important)
+Step 3: Push your code
+
+In Git Bash:
+
+git push origin main
+
+When prompted:
+
+Username → your GitHub username
+Password → paste the PAT (NOT your real password)
+Step 4: Disable saving credentials (for shared systems)
+git config --global credential.helper ""
+
+This avoids future conflicts with other users.
